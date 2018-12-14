@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/ColbaTechnologies/QA-Dasboard.svg?branch=master)](https://travis-ci.com/ColbaTechnologies/QA-Dasboard)
+[![Build Status](https://travis-ci.com/ColbaTechnologies/QA-Dashboard.svg?branch=master)](https://travis-ci.com/ColbaTechnologies/QA-Dashboard)
 
 # QA-Dasboard
 
