@@ -1,0 +1,16 @@
+#testRow{
+  .copy-icon{
+    cursor: pointer;
+    &.copied{
+      animation: myfirst 0.5s 1;
+    }
+  }
+}
+
+@keyframes myfirst
+{
+  0%      {color:#20a8d8;}
+  25%     {color:cyan;}
+  75%     {color:cyan;}
+  100%    {color:#20a8d8;}
+}

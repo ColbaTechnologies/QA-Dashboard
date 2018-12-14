@@ -1,0 +1,38 @@
+version: "3"
+services:
+  webapp:
+    container_name: "qa_webapp"
+    build: ./WebApp
+    ports:
+      - '3000:3000'
+  api:
+    container_name: "qa_api"git 
+    build: ./API
+    ports:
+      - '5000:5000'
+    depends_on:
+      - mongo
+  mongoex:
+    image: mongo-express
+    environment:
+      - ME_CONFIG_OPTIONS_EDITORTHEME=ambiance
+      - ME_CONFIG_MONGODB_SERVER=mongo
+      - ME_CONFIG_MONGODB_PORT=27017
+      - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mongo
+  mongo:
+    container_name: mongo
+    image: mongo
+    restart: always
+    environment:
+      - MONGO_INITDB_DATABASE=qaDashboard 
+    volumes:
+      - mongodata:/data_docker/db
+    
+    ports:
+      - "27017:27017"
+volumes:
+  mongodata:
