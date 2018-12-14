@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.com/ColbaTechnologies/QA-Dashboard.svg?branch=master)](https://travis-ci.com/ColbaTechnologies/QA-Dashboard)
 
-# QA-Dasboard
+# QA-Dashboard
 
 # Install with docker-compose
 
