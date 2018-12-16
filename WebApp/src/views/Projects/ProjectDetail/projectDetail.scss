@@ -1,33 +1,31 @@
-#project{
-  .add{
+#project {
+  .add {
     text-align: center;
-    background: cyan;
+    cursor: pointer;
   }
-  .editBox{
+  .editBox {
     display: flex;
-    .icons{
+    .icons {
       cursor: pointer;
-      margin-left:5px;
-      margin-right:5px;
+      margin-left: 5px;
+      margin-right: 5px;
     }
   }
-  .testList{
+  .testList {
     overflow-y: auto;
     max-height: 400px;
-    .list-group-item{
-      cursor:pointer;
+    .list-group-item {
+      cursor: pointer;
       h5 {
-
-        padding-top: 15px
+        padding-top: 15px;
       }
     }
   }
-  .badge{
+  .badge {
     position: absolute;
     right: 0;
   }
-  .play{
+  .play {
     font-size: 30px;
   }
 }
-

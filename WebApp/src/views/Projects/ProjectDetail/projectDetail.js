@@ -192,7 +192,7 @@ class ProjectDetail extends Component {
           alert(e);
         });
     } else {
-      alert("Some Test suite is not passed");
+      alert("Some Test suite are not passed");
     }
   };
 
@@ -203,7 +203,7 @@ class ProjectDetail extends Component {
         <Row id="project">
           <Col xs="12">
             <Button
-              color="warning"
+              color="primary"
               size="lg"
               style={{ height: 100, marginBottom: 20 }}
               onClick={() => this.createPackage()}
@@ -224,31 +224,28 @@ class ProjectDetail extends Component {
               selectTestSuite={testSuite => this.selectTestSuite(testSuite)}
             />
           </Col>
-          {this.state.testSuiteSelected !== null &&
-            testCasesSelected && (
-              <Col sm="12" xl="6">
-                <TestCasesCard
-                  onFilterChange={filter =>
-                    this.onFilterChange(filter, "testCases")
-                  }
-                  buttonText={!this.isExecution && "ADD TEST CASE"}
-                  createTestCase={data => this.createTestCase(data)}
-                  testCaseSelected={this.state.testCaseSelected}
-                  testCasesSelected={testCasesSelected}
-                  projectId={this.projectId}
-                  isExecution={this.isExecution}
-                  goToTestExecution={testCase =>
-                    this.goToTestExecution(testCase)
-                  }
-                  selectTestCase={(testCase, mode) =>
-                    this.selectTestCase(testCase, mode)
-                  }
-                  deleteTestCase={(testCase, mode) =>
-                    this.deleteTestCase(testCase, mode)
-                  }
-                />
-              </Col>
-            )}
+          {this.state.testSuiteSelected !== null && testCasesSelected && (
+            <Col sm="12" xl="6">
+              <TestCasesCard
+                onFilterChange={filter =>
+                  this.onFilterChange(filter, "testCases")
+                }
+                buttonText={!this.isExecution && "ADD TEST CASE"}
+                createTestCase={data => this.createTestCase(data)}
+                testCaseSelected={this.state.testCaseSelected}
+                testCasesSelected={testCasesSelected}
+                projectId={this.projectId}
+                isExecution={this.isExecution}
+                goToTestExecution={testCase => this.goToTestExecution(testCase)}
+                selectTestCase={(testCase, mode) =>
+                  this.selectTestCase(testCase, mode)
+                }
+                deleteTestCase={(testCase, mode) =>
+                  this.deleteTestCase(testCase, mode)
+                }
+              />
+            </Col>
+          )}
         </Row>
       </div>
     );

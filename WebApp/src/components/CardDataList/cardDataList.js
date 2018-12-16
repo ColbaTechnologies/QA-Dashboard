@@ -49,16 +49,15 @@ export const CardDataList = ({
       <CardBody>
         {head}
         {children()}
-        {buttonText &&
-          addValueTolist && (
-            <ListGroupItem
-              className="add"
-              tag="a"
-              onClick={() => addValueTolist()}
-            >
-              {buttonText}
-            </ListGroupItem>
-          )}
+        {buttonText && addValueTolist && (
+          <ListGroupItem
+            className="add"
+            color="primary"
+            onClick={() => addValueTolist()}
+          >
+            {buttonText}
+          </ListGroupItem>
+        )}
       </CardBody>
     </Card>
   );

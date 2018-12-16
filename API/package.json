@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "backend of QA dashboard app",
   "main": "server.js",
-  "scripts": {     
+  "scripts": {
     "dev": "nodemon server.js"
   },
   "author": "Fran Pastor",
