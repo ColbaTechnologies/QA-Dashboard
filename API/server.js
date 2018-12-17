@@ -1,9 +1,13 @@
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").load();
+}
 const compression = require("compression");
 const helmet = require("helmet");
+// convert to uppercase
 
 const express = require("express"),
   app = express(),
-  port = process.env.PORT || 5000,
+  port = process.env.QA_API_PORT || process.env.PORT || 5000,
   mongoose = require("mongoose"),
   Project = require("./api/models/projectModel"),
   TestSuite = require("./api/models/testSuiteModel"),
@@ -15,7 +19,7 @@ const express = require("express"),
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
 mongoose.connect(
-  "mongodb://localhost/qaDashboard",
+  process.env.QA_API_DB_URL,
   { useNewUrlParser: true }
 );
 
