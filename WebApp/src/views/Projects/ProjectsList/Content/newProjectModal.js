@@ -6,7 +6,6 @@ import {
   ModalHeader,
   Button,
   Col,
-  Picker,
   Form,
   FormGroup,
   Input,
