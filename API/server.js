@@ -1,4 +1,6 @@
 const compression = require("compression");
+const helmet = require("helmet");
+
 const express = require("express"),
   app = express(),
   port = process.env.PORT || 5000,
@@ -30,6 +32,8 @@ app.use(function(req, res, next) {
   );
   next();
 });
+app.use(helmet());
+
 app.use(compression()); //Compress all routes
 
 const routes = require("./api/routes/qaDashboardRoutes"); //importing route
