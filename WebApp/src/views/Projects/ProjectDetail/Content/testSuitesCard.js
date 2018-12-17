@@ -16,7 +16,8 @@ export const TestSuitesCard = ({
   testSuiteSelected,
   selectTestSuite,
   buttonText,
-  onFilterChange
+  onFilterChange,
+  deleteTestSuite
 }) => {
   return (
     <CardDataList
@@ -44,6 +45,10 @@ export const TestSuitesCard = ({
                     <Badge className="mr-1" color="primary">
                       {passed.length + "/" + testSuite.testCases.length}
                     </Badge>
+                    <i
+                      className="cui-trash icons font-xl bash"
+                      onClick={() => deleteTestSuite(testSuite._id)}
+                    />
                   </ListGroupItemHeading>
                   <ListGroupItemText>{testSuite.description}</ListGroupItemText>
                 </ListGroupItem>

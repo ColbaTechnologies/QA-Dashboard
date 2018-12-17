@@ -32,3 +32,15 @@ exports.create_a_testSuite = (req, res) => {
     res.json(testSuite);
   });
 };
+
+exports.delete_a_testSuite = (req, res) => {
+  TestSuite.remove(
+    {
+      _id: req.params.testSuiteId
+    },
+    err => {
+      if (err) res.send(err);
+      res.json({ message: "Test Suite successfully deleted" });
+    }
+  );
+};
