@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Nav, NavItem, NavLink } from "reactstrap";
+import { Nav } from "reactstrap";
 import PropTypes from "prop-types";
 
 import { AppNavbarBrand, AppSidebarToggler } from "@coreui/react";
@@ -15,8 +15,6 @@ const defaultProps = {};
 class MainHeader extends Component {
   render() {
     // eslint-disable-next-line
-    const { children, ...attributes } = this.props;
-
     return (
       <React.Fragment>
         <AppSidebarToggler className="d-lg-none" display="md" mobile />
