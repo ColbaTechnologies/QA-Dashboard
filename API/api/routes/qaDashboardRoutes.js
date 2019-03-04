@@ -11,6 +11,8 @@ module.exports = function(app) {
     .get(projects.list_all_projects)
     .post(projects.create_a_project);
   app.route("/projects/:email").get(projects.list_all_projects_by_email);
+
+  app.route("/testSuite/:testSuiteId").delete(testSuites.delete_a_testSuite);
   app
     .route("/testSuites/:projectId")
     .get(testSuites.list_all_testSuitesFromProject);
@@ -20,7 +22,6 @@ module.exports = function(app) {
   app
     .route("/testCases/:testSuiteId")
     .get(testCases.list_all_testCasesByTestSuitId);
-
   app
     .route("/testCases/:projectId/:testCaseId")
     .get(testCases.get_testCaseById)
