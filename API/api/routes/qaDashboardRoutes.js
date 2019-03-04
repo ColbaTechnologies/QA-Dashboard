@@ -11,6 +11,7 @@ module.exports = function(app) {
     .get(projects.list_all_projects)
     .post(projects.create_a_project);
 
+  app.route("/testSuite/:testSuiteId").delete(testSuites.delete_a_testSuite);
   app
     .route("/testSuites/:projectId")
     .get(testSuites.list_all_testSuitesFromProject);
@@ -20,7 +21,6 @@ module.exports = function(app) {
   app
     .route("/testCases/:testSuiteId")
     .get(testCases.list_all_testCasesByTestSuitId);
-
   app
     .route("/testCases/:projectId/:testCaseId")
     .get(testCases.get_testCaseById)
@@ -40,5 +40,4 @@ module.exports = function(app) {
   app.route("/executions").post(testCaseExecution.create_a_testCaseExecution);
 
   app.route("/packages/:projectId").post(projectPackage.create_a_package);
-
 };
