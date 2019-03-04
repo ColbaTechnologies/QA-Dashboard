@@ -9,6 +9,12 @@ exports.list_all_projects = (req, res) => {
     res.json(project);
   });
 };
+exports.list_all_projects_by_email = (req, res) => {
+  Project.find({ allowedEmails: req.params.email }, function(err, project) {
+    if (err) res.send(err);
+    res.json(project);
+  });
+};
 
 exports.create_a_project = (req, res) => {
   let new_Project = new Project(req.body);

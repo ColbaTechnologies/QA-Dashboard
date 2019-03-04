@@ -14,8 +14,15 @@ const createTestSuite = data => {
     data
   });
 };
+const deleteTestSuite = testSuiteId => {
+  return DataSource({
+    url: `/testSuite/${testSuiteId}`,
+    method: "DELETE"
+  });
+};
 
 export const TestSuiteService = {
   getTestSuitesByProjectId, // GET
-  createTestSuite
+  createTestSuite,
+  deleteTestSuite
 };

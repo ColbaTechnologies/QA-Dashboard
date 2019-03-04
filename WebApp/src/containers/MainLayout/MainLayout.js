@@ -37,45 +37,47 @@ class MainLayout extends Component {
   }
 
   setRoutes = () => {
-    ProjectService.getAllProjects().then(projects => {
-      navigation.items = [
-        ...navigation.items,
-        ...projects.map(project => {
-          return {
+    ProjectService.getAllProjectsByEmail(this.props.user.email).then(
+      projects => {
+        navigation.items = [
+          ...navigation.items,
+          ...projects.map(project => {
+            return {
+              name: project.name,
+              icon: "icon-book-open",
+              children: [
+                {
+                  name: "Test Definitions",
+                  url: `/projects/${project._id}`
+                },
+                {
+                  name: "Test Executions",
+                  url: `/projects/${project._id}/testExecutions/`
+                }
+              ]
+            };
+          })
+        ];
+        projects.forEach(project => {
+          routes.push({
+            path: `/projects/${project._id}`,
+            exact: true,
             name: project.name,
-            icon: "icon-book-open",
-            children: [
-              {
-                name: "Test Definitions",
-                url: `/projects/${project._id}`
-              },
-              {
-                name: "Test Executions",
-                url: `/projects/${project._id}/testExecutions/`
-              }
-            ]
-          };
-        })
-      ];
-      projects.forEach(project => {
-        routes.push({
-          path: `/projects/${project._id}`,
-          exact: true,
-          name: project.name,
-          component: ProjectDetail
+            component: ProjectDetail
+          });
+          routes.push({
+            path: `/projects/${project._id}/testExecutions`,
+            exact: true,
+            component: ProjectDetail
+          });
         });
-        routes.push({
-          path: `/projects/${project._id}/testExecutions`,
-          exact: true,
-          component: ProjectDetail
+        this.setState({
+          navigation,
+          loading: false,
+          routes
         });
-      });
-      this.setState({
-        navigation,
-        loading: false,
-        routes
-      });
-    });
+      }
+    );
   };
 
   loading = () => (
@@ -84,7 +86,7 @@ class MainLayout extends Component {
 
   signOut(e) {
     e.preventDefault();
-    this.props.history.push("/login");
+    this.props.history.push("/logout");
   }
 
   render() {
@@ -123,7 +125,9 @@ class MainLayout extends Component {
                         path={route.path}
                         exact={route.exact}
                         name={route.name}
-                        render={props => <route.component {...props} />}
+                        render={props => (
+                          <route.component user={this.props.user} {...props} />
+                        )}
                       />
                     ) : null;
                   })}

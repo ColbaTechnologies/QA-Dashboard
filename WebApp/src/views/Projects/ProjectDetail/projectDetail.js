@@ -120,6 +120,17 @@ class ProjectDetail extends Component {
     });
   };
 
+  deleteTestSuite = id => {
+    TestSuiteService.deleteTestSuite(id).then(() => {
+      let { testSuites } = this.state;
+      testSuites = testSuites.filter(testSuite => testSuite._id !== id);
+      this.setState(() => ({
+        ...this.state,
+        testSuites
+      }));
+    });
+  };
+
   deleteTestCase = id => {
     TestCaseService.deleteTestCase(this.projectId, id).then(() => {
       let { testSuites } = this.state;
@@ -221,6 +232,7 @@ class ProjectDetail extends Component {
               buttonText={!this.isExecution && "ADD TEST SUITE"}
               toggleModal={this.toggleModal}
               createTestSuite={data => this.createTestSuite(data)}
+              deleteTestSuite={id => this.deleteTestSuite(id)}
               selectTestSuite={testSuite => this.selectTestSuite(testSuite)}
             />
           </Col>

@@ -37,9 +37,12 @@ class ProjectList extends Component {
   };
   componentDidMount() {
     localStorage.clear();
-    ProjectService.getAllProjects().then(projects => {
-      this.setState(() => ({ projects }));
-    });
+    console.log(this.props.user.email);
+    ProjectService.getAllProjectsByEmail(this.props.user.email).then(
+      projects => {
+        this.setState(() => ({ projects }));
+      }
+    );
   }
   render() {
     const { projects, modal } = this.state;
