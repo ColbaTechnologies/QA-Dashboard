@@ -13,10 +13,24 @@ const TestCaseExecutionList = React.lazy(() =>
 const TestExecutionDetail = React.lazy(() =>
   import("./views/Projects/TestExecutionDetail/testExecutionDetail.js")
 );
+const Logout = React.lazy(() => import("./views/logout.js"));
+const Login = React.lazy(() => import("./views/Pages/Login/Login"));
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
   { path: "/projects", exact: true, name: "Projects", component: ProjectList },
+  {
+    path: "/logout",
+    exact: true,
+    name: "Logout",
+    component: Logout
+  },
+  {
+    path: "/login",
+    exact: true,
+    name: "Login",
+    component: Login
+  },
   {
     path: "/projects/:projectId/testCase/:testCaseId",
     exact: true,
@@ -36,6 +50,5 @@ const routes = [
     component: TestExecutionDetail
   }
 ];
-
 
 export default routes;

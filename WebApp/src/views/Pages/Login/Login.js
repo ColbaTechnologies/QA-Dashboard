@@ -12,22 +12,41 @@ import {
 
 const Login = ({ login }) => {
   return (
-    <div className="app flex-row align-items-center">
+    <div
+      className="app flex-row align-items-center"
+      style={{ backgroundColor: "#0d3871" }}
+    >
       <Container>
         <Row className="justify-content-center">
           <Col md="8">
             <CardGroup>
-              <Card className="p-4">
+              <Card
+                className="p-4 text-center"
+                style={{ backgroundColor: "#0d3871", border: "none" }}
+              >
                 <CardBody>
                   <Form>
-                    <h1>Login</h1>
-                    <p className="text-muted">Sign In to your account</p>
+                    <Row className="justify-content-center">
+                      <img
+                        src="http://colba.es/wp-content/uploads/2018/03/colba-logo.png"
+                        alt=""
+                      />
+                    </Row>
+                    <h2
+                      style={{
+                        color: "#FFF",
+                        marginTop: "30px",
+                        marginBottom: "30px"
+                      }}
+                    >
+                      Quality Assurance Dashboard
+                    </h2>
                     <Row>
-                      <Col xs="6">
+                      <Col xs="12">
                         <Button
                           onClick={login}
-                          color="primary"
-                          className="px-4"
+                          color="primary btn-lg"
+                          className="px-5"
                         >
                           Login
                         </Button>

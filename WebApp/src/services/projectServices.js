@@ -6,6 +6,12 @@ const getAllProjects = () => {
     method: "GET"
   });
 };
+const getAllProjectsByEmail = email => {
+  return DataSource({
+    url: `/projects/${email}`,
+    method: "GET"
+  });
+};
 const newProject = data => {
   return DataSource({
     url: "/projects",
@@ -16,5 +22,6 @@ const newProject = data => {
 
 export const ProjectService = {
   getAllProjects, // GET
-  newProject //POST
+  newProject, //POST
+  getAllProjectsByEmail
 };

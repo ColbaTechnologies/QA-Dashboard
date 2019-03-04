@@ -10,7 +10,7 @@ module.exports = function(app) {
     .route("/projects")
     .get(projects.list_all_projects)
     .post(projects.create_a_project);
-
+  app.route("/projects/:email").get(projects.list_all_projects_by_email);
   app
     .route("/testSuites/:projectId")
     .get(testSuites.list_all_testSuitesFromProject);
@@ -40,5 +40,4 @@ module.exports = function(app) {
   app.route("/executions").post(testCaseExecution.create_a_testCaseExecution);
 
   app.route("/packages/:projectId").post(projectPackage.create_a_package);
-
 };
